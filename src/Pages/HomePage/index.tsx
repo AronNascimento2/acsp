@@ -64,7 +64,7 @@ export const OrchestraLandingPage = () => {
     <div className="orchestra-page">
       <header>
         <div className="img-logo">
-          {/* <img src="acsplogo.jpg" alt="acsplogo" style={{ width: "100px" }} /> */}
+          <img src="acsplogo.jpg" alt="acsplogo" style={{ width: "100px" }} />
           <p className="acsp">Academia de cordas de São Paulo</p>
         </div>
         <nav>
@@ -83,10 +83,10 @@ export const OrchestraLandingPage = () => {
       </header>
       <section id="about">
         <div className="video-container">
-          {/* <video autoPlay muted loop>
+          <video autoPlay muted loop>
             <source src="/acspvideo.mp4" type="video/mp4" />
             Seu navegador não suporta o elemento de vídeo.
-          </video> */}
+          </video>
         </div>
       </section>
       <section id="events">
@@ -94,7 +94,7 @@ export const OrchestraLandingPage = () => {
           <div className="event">
             <div className="concerts">
               <div className="concert-item">
-                {/* <img src="Quarteto.jpg" alt="" /> */}
+                <img src="Quarteto.jpg" alt="" /> 
                 <div className="description">
                   <div className="content-description">
                     <h3 className="title">Chamber Concerts Series</h3>
@@ -201,12 +201,9 @@ export const OrchestraLandingPage = () => {
           </div>
         </div>
       </section>
-      <div className="orchestra-page">
-        {/* Seu conteúdo existente */}
         <footer>
           <p>&copy; {getCurrentYear()} ACSP. Todos os direitos reservados.</p>
         </footer>
-      </div>
     </div>
   );
 };
