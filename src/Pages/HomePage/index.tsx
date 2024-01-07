@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./styles.css";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
@@ -8,7 +8,25 @@ export const OrchestraLandingPage = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [subject, setSubject] = useState("");
+  const [showButton, setShowButton] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      // Se o usuário rolar mais do que 400 pixels, mostrar o botão
+      if (window.pageYOffset > 400) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    };
 
+    // Adicionar event listener para verificar o scroll
+    window.addEventListener("scroll", handleScroll);
+
+    // Remover event listener quando o componente for desmontado
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -67,20 +85,17 @@ export const OrchestraLandingPage = () => {
           <img src="acsplogo.jpg" alt="acsplogo" style={{ width: "100px" }} />
           <p className="acsp">Academia de cordas de São Paulo</p>
         </div>
-        <nav>
-          <ul>
-            <li>
-              <a href="#about">Início</a>
-            </li>
-            <li>
-              <a href="#events">Concertos</a>
-            </li>
-            <li>
-              <a href="#contact">Contato</a>
-            </li>
-          </ul>
-        </nav>
       </header>
+      {showButton && (
+        <section id="to-top">
+          <button
+            className="to-top-button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            Voltar ao topo
+          </button>
+        </section>
+      )}
       <section id="about">
         <div className="video-container">
           <video autoPlay muted loop>
@@ -94,7 +109,7 @@ export const OrchestraLandingPage = () => {
           <div className="event">
             <div className="concerts">
               <div className="concert-item">
-                <img src="Quarteto.jpg" alt="" /> 
+                <img src="Quarteto.jpg" alt="" />
                 <div className="description">
                   <div className="content-description">
                     <h3 className="title">Chamber Concerts Series</h3>
@@ -201,9 +216,9 @@ export const OrchestraLandingPage = () => {
           </div>
         </div>
       </section>
-        <footer>
-          <p>&copy; {getCurrentYear()} ACSP. Todos os direitos reservados.</p>
-        </footer>
+      <footer>
+        <p>&copy; {getCurrentYear()} ACSP. Todos os direitos reservados.</p>
+      </footer>
     </div>
   );
 };
