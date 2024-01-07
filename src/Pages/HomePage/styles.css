@@ -154,7 +154,7 @@ label {
   display: flex;
   flex-direction: column;
   width: 100%;
-  
+
   .button {
     width: 200px;
     height: 40px;
@@ -249,5 +249,29 @@ label {
     .message {
       height: 100px;
     }
+  }
+}
+.to-top-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: none;
+}
+
+.to-top-button:hover {
+  background-color: #555;
+}
+
+/* Exibir o botão quando o usuário rolar a página */
+@media screen and (min-height: 600px) {
+  .to-top-button {
+    display: block;
   }
 }

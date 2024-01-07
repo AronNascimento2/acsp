@@ -29,6 +29,7 @@ export const OrchestraLandingPage = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  
   const sendEmail = (e) => {
     e.preventDefault();
     if (!name || !email || !subject || !message) {
