@@ -154,6 +154,7 @@ label {
   display: flex;
   flex-direction: column;
   width: 100%;
+  
   .button {
     width: 200px;
     height: 40px;
@@ -162,6 +163,15 @@ label {
     background-color: #0097ff;
     color: #fff;
     border: none;
+   
+  }
+  .button:disabled {
+    background-color: #ccc; /* Altere para a cor desejada para o botão desabilitado */
+    cursor: not-allowed; /* Altere o cursor quando desabilitado */
+    color: #666; /* Altere a cor do texto quando desabilitado, se necessário */
+  }
+  .button:hover {
+    cursor: pointer;
   }
   input {
     width: 100%;

@@ -9,6 +9,8 @@ export const OrchestraLandingPage = () => {
   const [message, setMessage] = useState("");
   const [subject, setSubject] = useState("");
   const [showButton, setShowButton] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false); // Novo estado para controlar o botão
+
   useEffect(() => {
     const handleScroll = () => {
       // Se o usuário rolar mais do que 400 pixels, mostrar o botão
@@ -29,6 +31,20 @@ export const OrchestraLandingPage = () => {
   }, []);
   const sendEmail = (e) => {
     e.preventDefault();
+    if (!name || !email || !subject || !message) {
+      toast.error("Por favor, preencha todos os campos!", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return; // Impedir o envio se algum campo estiver vazio
+    }
+    setIsButtonDisabled(true); // Desabilitar o botão ao enviar o formulário
 
     const templateParams = {
       from_name: name,
@@ -56,23 +72,34 @@ export const OrchestraLandingPage = () => {
             draggable: true,
             progress: undefined,
             theme: "light",
+            onClose: () => {
+              setTimeout(() => {
+                setIsButtonDisabled(false); // Habilita o botão após o toast ser fechado
+              }, 4000);            },
+            
           });
         },
         (error) => {
           console.log(error.text);
-          toast.error("Não foi possivel enviar o email !", {
+          toast.error("Não foi possível enviar o email!", {
             position: "bottom-right",
-            autoClose: 2000,
+            autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
             theme: "light",
+            onClose: () => {
+              setTimeout(() => {
+                setIsButtonDisabled(false); // Habilita o botão após o toast ser fechado
+              }, 4000);            },
           });
         }
       );
+      
   };
+
 
   const getCurrentYear = () => {
     return new Date().getFullYear();
@@ -210,7 +237,7 @@ export const OrchestraLandingPage = () => {
                     value={message}
                   />
                 </div>
-                <input className="button" type="submit" value="Enviar" />
+                <input className="button" type="submit" value="Enviar" disabled={isButtonDisabled}/>
               </div>
             </form>
           </div>
