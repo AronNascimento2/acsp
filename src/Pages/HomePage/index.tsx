@@ -33,14 +33,14 @@ export const OrchestraLandingPage = () => {
     const templateParams = {
       from_name: name,
       message: message,
-      email: email,
+      from_email: email,
       subject: subject,
     };
 
     emailjs
       .send(
         "service_nsccokl",
-        "template_mdoux2p",
+        "template_s0ujjdn",
         templateParams,
         "vOFphkyds17Mdtkhn"
       )
