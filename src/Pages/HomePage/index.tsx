@@ -29,7 +29,7 @@ export const OrchestraLandingPage = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  
+
   const sendEmail = (e) => {
     e.preventDefault();
     if (!name || !email || !subject || !message) {
@@ -76,8 +76,8 @@ export const OrchestraLandingPage = () => {
             onClose: () => {
               setTimeout(() => {
                 setIsButtonDisabled(false); // Habilita o botão após o toast ser fechado
-              }, 4000);            },
-            
+              }, 4000);
+            },
           });
         },
         (error) => {
@@ -94,13 +94,12 @@ export const OrchestraLandingPage = () => {
             onClose: () => {
               setTimeout(() => {
                 setIsButtonDisabled(false); // Habilita o botão após o toast ser fechado
-              }, 4000);            },
+              }, 4000);
+            },
           });
         }
       );
-      
   };
-
 
   const getCurrentYear = () => {
     return new Date().getFullYear();
@@ -110,7 +109,7 @@ export const OrchestraLandingPage = () => {
     <div className="orchestra-page">
       <header>
         <div className="img-logo">
-          <img src="acsplogo.jpg" alt="acsplogo" style={{ width: "100px" }} />
+          <img src="acsplogo.jpg" alt="acsplogo" style={{ width: "50px" }} />
           <p className="acsp">Academia de cordas de São Paulo</p>
         </div>
       </header>
@@ -134,57 +133,54 @@ export const OrchestraLandingPage = () => {
       </section>
       <section id="events">
         <div className="event-list">
-          <div className="event">
-            <div className="concerts">
-              <div className="concert-item">
-                <img src="Quarteto.jpg" alt="" />
-                <div className="description">
-                  <div className="content-description">
-                    <h3 className="title">Chamber Concerts Series</h3>
-                    <p className="text">
-                      Orgulhosamente a orquestra Academia de Cordas de São Paulo
-                      promove a série de concertos camerísticos "CHAMBER
-                      CONCERTS SERIES", em belos espaços alternativos da cidade
-                      de São Paulo. Neste concerto teremos a presença do
-                      quarteto de cordas da ACSP apresentando obras clássicas de
-                      Albinoni, Mozart e Haydn, em concertos contextualizados e
-                      explicativos de uma forma dinâmica e sem sisudez. Essa
-                      experiência traz ao público um concerto de alto nível
-                      artístico em um dos ambientes mais aconchegantes da
-                      cultura paulistana, a Associação Cultural Cachuera. *OBS:
-                      os assentos não possuem numeração
-                    </p>
-                    <p className="text">
-                      PROGRAMA: <br />
-                      -T. Albinoni: Sinfonia a 4 <br />
-                      -W. A. Mozart:Quarteto N.3 em Sol Maior K.156 <br />
-                      -J. Haydn: Quarteto op.33 N.2 (The Joke)
-                      <br />
-                      Duração: 60 min.
-                    </p>
-                    <a
-                      href="https://www.sympla.com.br/evento/chamber-concerts-series/2272449?referrer=www.google.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Comprar ingressos
-                    </a>
-                  </div>
-                </div>
-              </div>
+          <div>
+            <h3 className="title">Chamber Concerts Series</h3>
+            <div className="content-description">
+              <p className="text">
+                Orgulhosamente a orquestra Academia de Cordas de São Paulo
+                promove a série de concertos camerísticos "CHAMBER CONCERTS
+                SERIES", em belos espaços alternativos da cidade de São Paulo.
+                Neste concerto teremos a presença do quarteto de cordas da ACSP
+                apresentando obras clássicas de Albinoni, Mozart e Haydn, em
+                concertos contextualizados e explicativos de uma forma dinâmica
+                e sem sisudez. Essa experiência traz ao público um concerto de
+                alto nível artístico em um dos ambientes mais aconchegantes da
+                cultura paulistana, a Associação Cultural Cachuera. *OBS: os
+                assentos não possuem numeração
+              </p>
+
+              <a
+                href="https://www.sympla.com.br/evento/chamber-concerts-series/2272449?referrer=www.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="button-buy"
+              >
+                Comprar ingressos
+              </a>
+            </div>
+            <div className="content-description">
+              <p className="text">
+                PROGRAMA: <br />
+                -T. Albinoni: Sinfonia a 4 <br />
+                -W. A. Mozart:Quarteto N.3 em Sol Maior K.156 <br />
+                -J. Haydn: Quarteto op.33 N.2 (The Joke)
+                <br />
+                Duração: 60 min.
+              </p>
+              <img src="Quarteto.jpg" alt="" className="image" />
             </div>
           </div>
         </div>
       </section>
       <section id="contact">
         <div className="container-contact">
-          <h2>Entre em Contato</h2>
+          <h2 className="title">Entre em Contato</h2>
           <div className="container-form">
             <form onSubmit={sendEmail} className="contact-form">
               <div className="inputs">
                 <div className="decription">
                   <div className="message-label">
-                    <label htmlFor="name" className="title">
+                    <label htmlFor="name" className="title-input">
                       Nome:
                     </label>
                     <input
@@ -198,7 +194,7 @@ export const OrchestraLandingPage = () => {
                 </div>
                 <div className="decription">
                   <div className="message-label">
-                    <label htmlFor="name" className="title">
+                    <label htmlFor="name" className="title-input">
                       Assunto:
                     </label>
                     <input
@@ -212,7 +208,7 @@ export const OrchestraLandingPage = () => {
                 </div>
                 <div className="decription">
                   <div className="message-label">
-                    <label htmlFor="email" className="title">
+                    <label htmlFor="email" className="title-input">
                       Email:
                     </label>
                     <input
@@ -227,7 +223,7 @@ export const OrchestraLandingPage = () => {
               </div>
               <div className="decription-message">
                 <div className="message-label">
-                  <label htmlFor="message" className="title">
+                  <label htmlFor="message" className="title-input">
                     Mensagem:
                   </label>
                   <textarea
@@ -238,7 +234,12 @@ export const OrchestraLandingPage = () => {
                     value={message}
                   />
                 </div>
-                <input className="button" type="submit" value="Enviar" disabled={isButtonDisabled}/>
+                <input
+                  className="button"
+                  type="submit"
+                  value="Enviar"
+                  disabled={isButtonDisabled}
+                />
               </div>
             </form>
           </div>

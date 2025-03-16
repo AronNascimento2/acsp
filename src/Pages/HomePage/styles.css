@@ -4,6 +4,14 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+.event-list {
+  background-color: #dbdbdb;
+}
+.image {
+  width: 700px;
+  height: 400px;
+  border-radius: 12px;
+}
 .video-container {
   display: flex;
   justify-content: center;
@@ -11,15 +19,16 @@ body {
   width: 100%; /* Define a largura do vídeo */
 }
 .video-container video {
-  width: 50%; /* Define a largura do vídeo */
+  width: 100%; /* Define a largura do vídeo */
   height: auto;
+  border-radius: 50px;
 }
 
 /* Estilo para o cabeçalho */
 header {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.9);
   color: white;
-  padding: 20px;
+  padding: 10px;
 }
 h3 {
   color: #fff;
@@ -52,46 +61,36 @@ h2 {
 }
 
 .content-description {
-  background-color: #fafafa;
+  background-color: ;
   padding: 1rem;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 60%;
+  gap: 50px;
 }
 
+.title {
+  color: black;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 30px;
+  padding: 10px;
+}
 .description {
   background-color: #fafafa;
-  width: 100%; /* Ajusta o tamanho da imagem */
+  width: 100%;
 
   justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  .title {
-    color: black;
-    display: flex;
-    justify-content: center;
-  }
-  p {
-  }
-  a {
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-    align-items: center;
-    width: 200px;
-    height: 40px;
-    color: #fff;
-    background-color: #0097ff;
-    border-radius: 20px;
-  }
 }
 .img-logo {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  gap: 15px;
   align-items: center;
+  padding-left: 14px;
 }
 .acsp {
   font-size: 22px;
@@ -126,7 +125,6 @@ nav ul li a:hover {
 
 /* Estilo para as seções */
 section {
-  background-color: black;
   padding: 50px 20px;
 }
 
@@ -163,7 +161,6 @@ label {
     background-color: #0097ff;
     color: #fff;
     border: none;
-   
   }
   .button:disabled {
     background-color: #ccc; /* Altere para a cor desejada para o botão desabilitado */
@@ -175,21 +172,24 @@ label {
   }
   input {
     width: 100%;
-    height: 30px;
+    height: 20px;
     font-size: 14px;
   }
   .message {
     width: 100%;
-    height: 300px;
+    height: 200px;
     font-size: 14px;
   }
-
+  .decription {
+    width: 100%;
+  }
   .decription-message {
     margin-top: 1rem;
     width: 100%;
     justify-content: center;
     flex-direction: column;
     display: flex;
+    gap: 20px;
   }
   .message-label {
     width: 100%;
@@ -209,7 +209,17 @@ label {
     }
   }
 }
-
+.title-input {
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+}
+.inputs {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  width: 100%;
+}
 .container-contact {
   width: 100%;
   display: flex;
@@ -224,6 +234,22 @@ label {
 .toast-error {
   background-color: #f44336;
 }
+.button-buy {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  color: #fff;
+  background-color: #0097ff;
+  border-radius: 20px;
+}
+.text {
+  max-width: 45%;
+  text-align: justify;
+}
+
 @media (max-width: 768px) {
   .video-container video {
     width: 100%; /* Define a largura do vídeo */
@@ -232,16 +258,17 @@ label {
   .concert-item {
     width: 100%; /* Define a largura do vídeo */
   }
-
+  .container-text {
+    width: 300px;
+  }
   .content-description {
     width: 90%;
   }
+
   .text {
     font-size: 14px;
   }
-  a {
-    height: 50px;
-  }
+
   .container-form {
     width: 90%;
   }
