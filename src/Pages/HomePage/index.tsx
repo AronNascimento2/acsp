@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import "./styles.css";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export const OrchestraLandingPage = () => {
   const [name, setName] = useState("");
@@ -11,6 +13,12 @@ export const OrchestraLandingPage = () => {
   const [showButton, setShowButton] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false); // Novo estado para controlar o botão
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Duração da animação (em ms)
+      once: true, // Se true, a animação ocorre apenas uma vez
+    });
+  }, []);
   useEffect(() => {
     const handleScroll = () => {
       // Se o usuário rolar mais do que 400 pixels, mostrar o botão
@@ -131,7 +139,7 @@ export const OrchestraLandingPage = () => {
           </video>
         </div>
       </section>
-      <section id="events">
+      <section id="events" data-aos="fade-up">
         <div className="event-list">
           <div>
             <h3 className="title">Chamber Concerts Series</h3>
@@ -169,6 +177,27 @@ export const OrchestraLandingPage = () => {
               </p>
               <img src="Quarteto.jpg" alt="" className="image" />
             </div>
+          </div>
+        </div>
+      </section>
+      <section id="members" data-aos="fade-left">
+        <h2 className="title-members">Membros do Quarteto</h2>
+        <div className="members-grid">
+          <div className="member">
+            <img src="Rodrigo.jpg" alt="Membro 1" className="member-img" />
+            <p>Rodrigo Leite</p>
+          </div>
+          <div className="member offset">
+            <img src="ligia.jpg" alt="Membro 2" className="member-img" />
+            <p>Ligia Machado</p>
+          </div>
+          <div className="member">
+            <img src="Aron.jpg" alt="Membro 3" className="member-img" />
+            <p>Aron Nascimento</p>
+          </div>
+          <div className="member offset2">
+            <img src="Cassiano.jpg" alt="Membro 4" className="member-img" />
+            <p>Cassiano</p>
           </div>
         </div>
       </section>
